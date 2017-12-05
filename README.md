@@ -1,21 +1,24 @@
-# MovieApp
+# Angular 4, ngrx, TS bundling issue
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+
 
 ## General info
 
-The application is a simple demo based on Angular 4, Rxjs and Ngrx/store/effects/router-store.
-It has only two pages - movie search page and movie details page.
-It has only browser client, and backend (ng serve) is used to serve static content only. All demo movies are mocked up (no http requests are done to fetch them).
+When using `@angular` v4, `@ngrx` v4 and have the following config in `tsconfig.json`:
+```json
+"paths": {
+  "*": [
+    "./node_modules/*"
+  ]
+}
+```
+webpack will generate incorrect output because it bundles `@ngrx/store` twice in the dist folder (correct ES5 bundle and the ES6 code from src folder).
+
+The issue does not happen when using Angular 5 even if `paths` config is specified in tsconfig.
 
 ## Installation
 
 1. Istall [Node.js](https://nodejs.org/en/download) LTS version
 2. 'npm i' in the application root
+3. `npm start` to generate the dist folder
 
-## Commands
-
-1. 'npm run build' to build the app
-2. 'npm run start' to start the app. Navigate to http://localhost:4200 to browse the app.
-3. 'npm run tests' to launch unit tests
-4. 'npm run e2e' to launch end-to-end tests
