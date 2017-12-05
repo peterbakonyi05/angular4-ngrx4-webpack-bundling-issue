@@ -1,4 +1,4 @@
-# Angular 4, ngrx, TS bundling issue
+# Angular 4, ngrx 4, TypeScript, Webpack bundling issue
 
 
 
