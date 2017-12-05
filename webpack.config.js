@@ -5,11 +5,6 @@ const { NamedModulesPlugin } = require('webpack');
 const { AotPlugin } = require('@ngtools/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
-const realNodeModules = fs.realpathSync(nodeModules);
-const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
-const minimizeCss = false;
-const baseHref = "";
-const deployUrl = "";
 
 module.exports = {
   "resolve": {
@@ -57,8 +52,5 @@ module.exports = {
     "module": false,
     "clearImmediate": false,
     "setImmediate": false
-  },
-  "devServer": {
-    "historyApiFallback": true
   }
 };
